@@ -11,6 +11,11 @@ Route::get('/', function () {
 Route::controller(PagesController::class)->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::get('/about', 'about')->name('about');
+    Route::get('/form', 'newUser')->name('newUser');
+});
+
+Route::controller(\App\Http\Controllers\Web\FormController::class)->group(function () {
+    Route::post('/create-user', 'createUser')->name('createUser');
 });
 
 Route::get('/hello', function () {
